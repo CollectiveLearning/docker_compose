@@ -1,0 +1,14 @@
+web: 
+  build: .
+  command: unicorn -l 0.0.0.0:3000
+  links: 
+    - db
+  ports:
+    - "3000"
+  volumes:
+    - .:/myapp
+
+db:
+  image: postgres:latest
+  ports:
+    - "5432"
