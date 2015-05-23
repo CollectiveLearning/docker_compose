@@ -1,0 +1,14 @@
+web:
+  build: .
+  command: bundle exec thin start -a 0.0.0.0 -p 3000
+  links:
+    - db
+  volumes:
+    - .:/myapp
+  ports:
+    - "3000"
+  
+db:
+  image: postgres:latest
+  ports: 
+    - 5432
